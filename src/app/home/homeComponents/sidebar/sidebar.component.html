@@ -1,0 +1,59 @@
+<div
+  class="{{
+    navclass ? 'sidebar close-nav' : menuShow ? 'sidebar showMenu' : 'sidebar'
+  }}"
+>
+  <div class="logoContainer">
+    <div class="logo">HRMS</div>
+    <button
+      mat-icon-button
+      class="menuBarBig"
+      aria-label="Example icon button with a menu icon"
+      (click)="toggleMenu()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="closeBar"
+      aria-label="Example icon button with a menu icon"
+      (click)="menuBar()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-list class="menuContainer">
+    <mat-list-item class="active" routerLink="/home/dash">
+      <mat-icon matListItemIcon>home</mat-icon>
+      <div matListItemTitle>Dashboard</div>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListItemIcon>groups</mat-icon>
+      <div matListItemTitle>Organization</div>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListItemIcon>diversity_2</mat-icon>
+      <div matListItemTitle>HR</div>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListItemIcon>manage_accounts</mat-icon>
+      <div matListItemTitle>Self Service</div>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListItemIcon>badge</mat-icon>
+      <div matListItemTitle>Background Check</div>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon matListItemIcon>work</mat-icon>
+      <div matListItemTitle>Recruitments</div>
+    </mat-list-item>
+  </mat-list>
+</div>
+<button
+  mat-icon-button
+  class="menuBar"
+  aria-label="Example icon button with a menu icon"
+  (click)="menuBar()"
+>
+  <mat-icon>menu</mat-icon>
+</button>

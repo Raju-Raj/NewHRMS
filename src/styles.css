@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%;scroll-behavior: smooth; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #f8fafb;}
+
+*{
+    padding: 0;
+    margin: 0;
+    /* overflow: hidden; */
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+.my-custom-snackbar-success {
+  margin: 0 !important;
+  position: absolute !important;
+  right: 25px !important;
+  bottom: 10px !important;
+}
+
+.my-custom-snackbar-success button{
+  background-color: rgb(55, 223, 55) !important;
+  color: white !important;
+}
+
+
+.my-custom-snackbar-failed{
+  margin: 0 !important;
+  position: absolute !important;
+  right: 25px !important;
+  bottom: 10px !important;
+}
+
+.my-custom-snackbar-failed button{
+  background-color: red !important;
+  color: white !important;
+}

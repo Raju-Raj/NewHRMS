@@ -1,0 +1,161 @@
+.sidebar{
+    background: #6f6af8;
+    height: calc(100vh - 20px);
+    border-radius: 20px;
+    padding: 10px;
+    width: 260px;
+    transition: all 300ms ease;
+    box-shadow: 0 2rem 3rem rgba(132,139,200,0.18);
+}
+
+
+.sidebar .logoContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px;
+}
+
+.sidebar .logoContainer .logo{
+    font-size: 22px;
+    font-weight: 800;
+    color: #eae9fe;
+    padding: 5px;
+    letter-spacing: 4px;
+}
+
+.sidebar .logoContainer .menuBarBig{
+    color: #eae9fe;
+}
+
+.sidebar .logoContainer .closeBar{
+    display: none;
+}
+
+.sidebar .menuContainer{
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .menuContainer mat-list-item{
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.sidebar .menuContainer mat-list-item.active{
+    border-left: 5px solid white;
+    background-color: #eae9fe1e;
+    border-radius: 0px 6px 6px 0px;
+}
+
+.sidebar .menuContainer mat-list-item.active:hover{
+    margin-left: 0;
+}
+
+.sidebar .menuContainer mat-list-item:hover{
+    margin-left: 15px;
+}
+
+.sidebar .menuContainer mat-list-item:hover mat-icon{
+    color: white;
+}
+
+.sidebar .menuContainer mat-list-item:hover div{
+    color: white;
+}
+
+.sidebar .menuContainer mat-list-item mat-icon{
+    color: #eae9fe;
+    font-weight: 500;
+    margin: 8px;
+}
+
+.sidebar .menuContainer mat-list-item div{
+    color: #eae9fe;
+    font-weight: 500;
+}
+
+.menuBar{
+    display: none;
+}
+
+
+/* off closenav styles */
+.sidebar.close-nav{
+    width: 80px;
+}
+
+.sidebar.close-nav .logoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar.close-nav .logoContainer .logo{
+    display: none;
+}
+
+.sidebar.close-nav .menuContainer mat-list-item div{
+    display: none;
+}
+
+
+/* media queries */
+ @media screen and (max-width:1600px) {
+    .sidebar{
+        width: 220px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .sidebar{
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        box-shadow: none;
+        border-radius: 0px;
+        height: 100%;
+    }
+    .sidebar .menuContainer mat-list-item div{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .sidebar .logoContainer .menuBarBig{
+       display: none;
+    }
+    .sidebar{
+        left: -100%;
+        transition: all 300ms ease;
+    }
+
+    .sidebar.showMenu{
+        left: 0;
+    }
+
+    .menuBar{
+        display: block;
+        position: absolute;
+        top: 10px;
+        left:10px;
+        font-family: 25px;
+        z-index: 998;
+        font-size:25px;
+        font-weight: 500;
+        color:#201d57;
+    }
+
+    .sidebar .logoContainer .closeBar{
+        display: block;
+        color: #eae9fe;
+    }
+
+}
+
+

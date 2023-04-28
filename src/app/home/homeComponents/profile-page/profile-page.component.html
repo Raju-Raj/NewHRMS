@@ -1,0 +1,66 @@
+<div class="profile">
+  <!-- <h3>Profile</h3> -->
+  <div class="header">
+    <div class="profileImage">
+      <img src="../../../../assets/raju.jpeg" alt="">
+    </div>
+  </div>
+  <div class="completeData">
+    <mat-card>
+      <mat-card-content class="card-content">
+        <div class="empName">
+          <span>{{user.firstName}} {{user.lastName}}</span>
+          <span>{{user.empRole}}</span>
+        </div>
+        <div class="details">
+          <div class="listOne">
+            <mat-list>
+              <mat-list-item>
+                <span matListItemTitle>First Name</span>
+                <span matListItemLine>{{user.firstName}}</span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <span matListItemTitle>Last Name</span>
+                <span matListItemLine>{{user.lastName}}</span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <span matListItemTitle>Email</span>
+                <span matListItemLine>{{user.email}}</span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <span matListItemTitle>Gender</span>
+                <span matListItemLine>{{user.gender}}</span>
+              </mat-list-item>
+            </mat-list>
+          </div>
+          <div class="listtwo">
+            <mat-list>
+              <mat-list-item>
+                <span matListItemTitle>Qualification</span>
+                <span matListItemLine>{{user.qualification}}</span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <span matListItemTitle>Date Of Birth</span>
+                <span matListItemLine>{{user.dateOfBirth}}</span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <span matListItemTitle>Mobile Number</span>
+                <span matListItemLine>{{user.mobileNumber}}</span>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <span matListItemTitle>Password</span>
+                <span matListItemLine>{{user.empRole}}</span>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

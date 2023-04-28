@@ -1,0 +1,129 @@
+
+<div class="{{navclass ? 'rightbar close-nav' : 'rightbar'}}">
+    <div class="icons-bar">
+        <button mat-icon-button>
+            <mat-icon  matBadgeColor="warn">date_range</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="announcement" aria-label="Example icon-button with a menu">
+            <mat-icon  matBadge="15"  matBadgeColor="warn">notifications</mat-icon>
+        </button>
+        <mat-menu #announcement="matMenu">
+          <button mat-menu-item type="button">
+            <div class="announcement">
+              <h3>New Announcement:</h3>
+              <div class="new" *ngFor="let ann of newAnnouncement">
+                <span class="title">{{ann.subject}}</span>
+                <span class="des">{{ann.description}}</span>
+              </div>
+              <button mat-raised-button>View More</button>
+            </div>
+          </button>
+        </mat-menu>
+        <button mat-icon-button>
+            <mat-icon  matBadge="5"  matBadgeColor="warn">message</mat-icon>
+        </button>
+        <div class="profile">
+            <img src="../../../assets/raju.jpeg" alt="">
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>expand_more</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item type="button" routerLink="/home/profile">
+                  <mat-icon>person</mat-icon>
+                  <span>Profile</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>settings</mat-icon>
+                  <span>Settings</span>
+                </button>
+                <button mat-menu-item (click)="logoutFunction()">
+                  <mat-icon>exit_to_app</mat-icon>
+                  <span>Logout</span>
+                </button>
+              </mat-menu>
+        </div>
+    </div>
+
+    <div class="current-projs">
+        <h2 class="proj-title">
+            Current Projects
+        </h2>
+        <div class="projs">
+            <div class="proj">
+                <div class="icon">
+                    <mat-icon>account_balance</mat-icon>
+                </div>
+                <div class="info">
+                    <p><b>Banking Webiste</b> for UPI transactions</p>
+                    <small class="text-muted">currently working on backend</small>
+                </div>
+            </div>
+            <div class="proj">
+                <div class="icon">
+                    <mat-icon>persons</mat-icon>
+                </div>
+                <div class="info">
+                    <p><b>HRMS</b> for HR managemenent process</p>
+                    <small class="text-muted">currently working UI Design</small>
+                </div>
+            </div>
+            <div class="proj">
+                <div class="icon">
+                    <mat-icon>shopping_cart</mat-icon>
+                </div>
+                <div class="info">
+                    <p><b>EBay Project</b> E-commerce website</p>
+                    <small class="text-muted">currently working on server</small>
+                </div>
+            </div>
+            <button class="more" mat-raised-button>
+                View More
+            </button>
+        </div>
+    </div>
+
+
+    <div class="emp-birth">
+        <h2 class="birth-title">
+            Today Birthdays
+        </h2>
+        <div class="births">
+            <div class="birth">
+                <div class="icon">
+                    <img src="../../../assets/vivek.jpeg" alt=""/>
+                </div>
+                <div class="info">
+                    <p><b>Vivek Kumar</b> teamlead of java team</p>
+                    <small class="text-muted">Java Developer</small>
+                </div>
+            </div>
+            <button class="more" mat-raised-button>
+                View More
+            </button>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="buttons">
+        <div class="button" routerLink="/home/addEmployee">
+            <span class="icon">
+                <mat-icon>add</mat-icon>
+            </span>
+            <span class="text">
+                Add Employee
+            </span>
+        </div>
+        <!-- <div class="button">
+            <span class="icon">
+                <mat-icon>exit_to_app</mat-icon>
+            </span>
+            <span class="text">
+                Apply Leave
+            </span>
+        </div> -->
+    </div>
+
+</div>

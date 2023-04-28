@@ -1,0 +1,14 @@
+<div class="container">
+  <aside>
+    <app-sidebar #child></app-sidebar>
+  </aside>
+  <div class="main">
+    <app-welcome-msg></app-welcome-msg>
+   <div class="content">
+    <router-outlet></router-outlet>
+   </div>
+  </div>
+  <div class="right">
+    <app-rightbar [navclass]="child.navclass"></app-rightbar>
+  </div>
+</div>

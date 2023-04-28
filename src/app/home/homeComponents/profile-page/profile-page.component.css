@@ -1,0 +1,75 @@
+.profile{
+  padding-top: 10px;
+}
+
+.profile h3{
+  font-size: 30px;
+  font-weight: 600;
+  opacity: 0.8;
+  margin: 10px 0px 10px 10px;
+  color: #1d1853;
+  text-align: center;
+}
+
+.profile .header{
+  background: url("../../../../assets/main.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  padding-left: 10px;
+}
+
+
+.profile .header .profileImage{
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: -30px;
+  z-index: 999;
+  left: 20px;
+}
+
+
+.profile .header .profileImage img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile mat-card mat-card-content{
+  padding-top: 40px;
+}
+
+.profile mat-card mat-card-content .empName{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-left: 20px;
+}
+
+.profile mat-card mat-card-content .empName>:nth-child(1){
+  font-size: 26px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.profile mat-card mat-card-content .empName>:nth-child(2){
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.profile mat-card mat-card-content .details{
+  display: flex;
+  justify-content: space-around;
+}
