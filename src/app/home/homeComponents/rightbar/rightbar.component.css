@@ -33,9 +33,9 @@
     object-fit: cover;
 }
 
-/* projects styles */
+/* current projects styles */
 
-.rightbar .current-projs{
+/* .rightbar .current-projs{
     margin: 10px;
     background: #fff;
     padding: 10px;
@@ -97,7 +97,64 @@
 
 .rightbar .current-projs .projs .proj .info p{
     margin: 0;
+} */
+
+/* current projects styles end */
+
+
+/* Announcements Section start */
+
+.rightbar .announcements{
+    margin: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 1rem;
+    box-shadow: 0 2rem 3rem rgba(132,139,200,0.18);
 }
+
+.rightbar .announcements .ann-title{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    margin: 10px 10px 15px 10px;
+    color: #1d1853;
+}
+
+.rightbar .announcements .ann-body{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rightbar .announcements .ann-body .ann-single{
+  display: flex;
+  flex-direction: column;
+  color: #1d1853;
+  margin-left: 10px;
+}
+
+
+.rightbar .announcements .ann-body .ann-single>:nth-child(1){
+  font-size: 16px;
+}
+
+.rightbar .announcements .ann-body .ann-single>:nth-child(2){
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+.rightbar .announcements .ann-body button{
+    margin: 15px;
+    background: #1d1853;
+    color: #fff;
+}
+
+/* Announcements Section end */
+
+
 
 /* employee birthday styles */
 
@@ -334,6 +391,9 @@
     }
 
 
+    .rightbar .announcements{
+      visibility: hidden;
+    }
 
 
     .rightbar .current-projs{

@@ -36,6 +36,10 @@
                   <mat-icon>settings</mat-icon>
                   <span>Settings</span>
                 </button>
+                <button mat-menu-item type="button" routerLink="/home/attendance">
+                  <mat-icon>how_to_reg</mat-icon>
+                  <span>Attendance</span>
+                </button>
                 <button mat-menu-item (click)="logoutFunction()">
                   <mat-icon>exit_to_app</mat-icon>
                   <span>Logout</span>
@@ -44,7 +48,7 @@
         </div>
     </div>
 
-    <div class="current-projs">
+    <!-- <div class="current-projs">
         <h2 class="proj-title">
             Current Projects
         </h2>
@@ -80,6 +84,27 @@
                 View More
             </button>
         </div>
+    </div> -->
+
+    <div class="announcements">
+      <h2 class="ann-title">
+        Announcements
+      </h2>
+
+      <div class="ann-body">
+        <div class="ann-single" *ngFor="let ann of newThreeAnnouncements">
+          <span>
+           <b> {{ann.subject}}</b>
+          </span>
+          <span>
+            {{ann.description}}
+          </span>
+        </div>
+        <button class="more" mat-raised-button routerLink="/home/announcements">
+          View More
+        </button>
+      </div>
+
     </div>
 
 

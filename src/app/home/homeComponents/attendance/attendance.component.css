@@ -1,0 +1,124 @@
+.attendance .clock{
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background-color: #1d1853 ;
+  border-radius: 0px 20px 20px 0px;
+  width: 340px;
+  height: 50px;
+  margin: 10px 0px 20px 0px;
+  align-items: center;
+  color: whitesmoke;
+  opacity: 0.8;
+}
+
+.attendance .clock .Time{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.attendance .clock .Time .icon{
+  margin-top: 6px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.attendance .clock .Time .time{
+  display: flex;
+  gap: 2px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.attendance .clock .Date{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.attendance .clock .Date .icon{
+  margin-top: 6px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.attendance .clock .Date .date{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.attendance .clock .Date .date .top{
+  display: flex;
+  gap: 2px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.attendance .clock .Date .date .bottom{
+  display: flex;
+  gap: 2px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+
+
+
+
+.attendance .main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 10px 10px 10px;
+
+}
+
+.attendance .main mat-card{
+  padding: 12px;
+}
+
+.attendance .topAttendance{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attendance .topAttendance .buttonclass{
+  margin-right: 20px;
+}
+
+.attendance .topAttendance .buttonclass button{
+  background-color: #1d1853 !important;
+  opacity: 0.8;
+}
+
+.attendance .main .main-form form{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.attendance .main mat-card mat-form-field{
+  width: 100%;
+}
+
+.attendance .main mat-card h1{
+  font-size: 20px;
+  color: #1d1853;
+  font-weight: 600;
+  text-align: center;
+  opacity: 0.8;
+}
+
+
+.attendance .main mat-card .buttons{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}

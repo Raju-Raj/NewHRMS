@@ -19,7 +19,7 @@ export class EmpTableComponent implements OnInit{
   ngOnInit(): void {
     this.empService.getEmployeeSer().subscribe(()=>{
       this.empService.employeesObservable.subscribe((data)=>{
-        const limitData = data.slice(Math.max(data.length - 5, 1))
+        const limitData = data.slice(Math.max(data.length - 5, 0))
         const reverseData = limitData.reverse()
         this.dataSource = new MatTableDataSource(reverseData)
         // console.log(reverseData)

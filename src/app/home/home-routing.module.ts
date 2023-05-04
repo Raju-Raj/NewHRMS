@@ -7,6 +7,9 @@ import { AddemployeeComponent } from './homeComponents/addemployee/addemployee.c
 import { ProfilePageComponent } from './homeComponents/profile-page/profile-page.component';
 import { AllEmployeeDetailsComponent } from './homeComponents/all-employee-details/all-employee-details.component';
 import { GetSingleEmployeeComponent } from './homeComponents/get-single-employee/get-single-employee.component';
+import { AnnouncementPageComponent } from './homeComponents/announcement-page/announcement-page.component';
+import { AttendanceComponent } from './homeComponents/attendance/attendance.component';
+import { AttendanceReportComponent } from './homeComponents/attendance-report/attendance-report.component';
 
 const routes: Routes = [
   {
@@ -37,6 +40,21 @@ const routes: Routes = [
       {
         path:'singleEmployee/:id',
         component:GetSingleEmployeeComponent,
+        canActivate:[AuthGuard]
+      },
+      {
+        path:'announcements',
+        component:AnnouncementPageComponent,
+        canActivate:[AuthGuard]
+      },
+      {
+        path:'attendance',
+        component:AttendanceComponent,
+        canActivate:[AuthGuard]
+      },
+      {
+        path:'attendanceReport/:id',
+        component:AttendanceReportComponent,
         canActivate:[AuthGuard]
       }
     ]

@@ -23,7 +23,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { WelcomeMsgComponent } from '../partials/welcome-msg/welcome-msg.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProfilePageComponent } from './homeComponents/profile-page/profile-page.component';
 import { AllEmployeeDetailsComponent } from './homeComponents/all-employee-details/all-employee-details.component';
@@ -31,6 +31,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { GetSingleEmployeeComponent } from './homeComponents/get-single-employee/get-single-employee.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { AnnouncementPageComponent } from './homeComponents/announcement-page/announcement-page.component';
+import { AttendanceComponent } from './homeComponents/attendance/attendance.component';
+import { AttendanceReportComponent } from './homeComponents/attendance-report/attendance-report.component';
 
 
 
@@ -46,6 +49,9 @@ import {MatDividerModule} from '@angular/material/divider';
     ProfilePageComponent,
     AllEmployeeDetailsComponent,
     GetSingleEmployeeComponent,
+    AnnouncementPageComponent,
+    AttendanceComponent,
+    AttendanceReportComponent,
   ],
   imports: [
     CommonModule,
@@ -68,6 +74,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatPaginatorModule,
     MatSortModule,
     MatDividerModule,
+    FormsModule
   ],
   providers:[]
 })

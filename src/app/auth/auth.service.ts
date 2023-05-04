@@ -24,7 +24,7 @@ export class AuthService {
   }
 
    login(userLogin:UserLogin):Observable<User>{
-    return this.http.post<User>("http://68.178.164.213:9090/login",userLogin).pipe(
+    return this.http.post<User>("http://68.178.164.213:9090/Employee/login",userLogin).pipe(
       tap({
         next:(user)=>{
           this.setUserToLocalStorage(user.employeeDto)

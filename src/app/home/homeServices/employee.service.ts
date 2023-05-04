@@ -24,7 +24,7 @@ export class EmployeeService {
 
 
   getEmployeeSer():Observable<UserDetails[]>{
-    return this.http.get<UserDetails[]>("http://68.178.164.213:9090/getEmployeeDetails").pipe(
+    return this.http.get<UserDetails[]>("http://68.178.164.213:9090/Employee/getEmployeeDetails").pipe(
       tap({
         next:(emp)=>{
           this.employeesSubject.next(emp);
@@ -37,7 +37,7 @@ export class EmployeeService {
   }
 
   getSingleEmployeeSer(id:string):Observable<UserDetails>{
-    return this.http.get<UserDetails>(`http://68.178.164.213:9090/getEmployeeDetail/${id}`).pipe(
+    return this.http.get<UserDetails>(`http://68.178.164.213:9090/Employee/getEmployeeDetail/${id}`).pipe(
       tap({
         next:(emp)=>{
           this.singleEmployeeSubject.next(emp)
@@ -52,7 +52,7 @@ export class EmployeeService {
 
   addEmployeeSer(empPayload:AddEmployeeInterface){
     console.log(empPayload)
-    return this.http.post("http://68.178.164.213:9090/saveEmployee",empPayload).pipe(
+    return this.http.post("http://68.178.164.213:9090/Employee/saveEmployee",empPayload).pipe(
       tap({
         next:(user)=>{
           this.getEmployeeSer()

@@ -1,0 +1,72 @@
+<div class="attendance">
+
+  <div class="topAttendance">
+    <div class="clock">
+      <div class="Time">
+        <div class="icon">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">
+            access_time
+          </mat-icon>
+        </div>
+        <div class="time">
+          <span>{{hours}}</span>
+          <span>:</span>
+          <span>{{minutes}}</span>
+          <span>:</span>
+          <span>{{seconds}}</span>
+          <span>{{ampm}}</span>
+        </div>
+      </div>
+      <div class="Date">
+        <div class="icon">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">
+            calendar_month
+          </mat-icon>
+        </div>
+        <div class="date">
+          <div class="top">
+            <span>{{day}}</span>
+            <span>-</span>
+            <span>{{month}}</span>
+            <span>-</span>
+            <span>{{year}}</span>
+          </div>
+          <div class="bottom">
+            <span>{{dayString}}</span>
+            <span>,</span>
+            <span>{{monthString}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttonclass">
+      <button mat-raised-button color="accent" type="button" routerLink="/home/attendanceReport/{{user.empId}}">Attendence Report</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <mat-card>
+      <h1>Attendance</h1>
+      <div class="main-form">
+        <form action="" [formGroup]="attenForm" (ngSubmit)="checkIn()">
+          <mat-form-field>
+            <mat-label>Working From</mat-label>
+            <mat-select formControlName="workFrom">
+              <mat-option value="office">
+                Office
+              </mat-option>
+              <mat-option value="home">
+                Home
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="buttons">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!attenForm.valid">CheckIn</button>
+            <button mat-raised-button color="accent" type="button" (click)="checkOut()">CheckOut</button>
+          </div>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+</div>
