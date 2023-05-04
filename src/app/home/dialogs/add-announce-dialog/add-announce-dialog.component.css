@@ -1,0 +1,29 @@
+
+.content{
+  padding-top: 10px;
+  width: 450px;
+}
+
+h1{
+  text-align: center !important;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1d1853;
+}
+
+.content .row{
+  display: flex;
+  gap: 10px;
+}
+
+.content .row mat-form-field{
+  width: 100%;
+}
+
+.action{
+  padding:0px 25px 20px;
+}
+
+.action button{
+  flex:1;
+}

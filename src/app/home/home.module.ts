@@ -34,7 +34,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { AnnouncementPageComponent } from './homeComponents/announcement-page/announcement-page.component';
 import { AttendanceComponent } from './homeComponents/attendance/attendance.component';
 import { AttendanceReportComponent } from './homeComponents/attendance-report/attendance-report.component';
-
+import { AddAnnounceDialogComponent } from './dialogs/add-announce-dialog/add-announce-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { AttendanceReportComponent } from './homeComponents/attendance-report/at
     AnnouncementPageComponent,
     AttendanceComponent,
     AttendanceReportComponent,
+    AddAnnounceDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -74,7 +76,8 @@ import { AttendanceReportComponent } from './homeComponents/attendance-report/at
     MatPaginatorModule,
     MatSortModule,
     MatDividerModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
   ],
   providers:[]
 })

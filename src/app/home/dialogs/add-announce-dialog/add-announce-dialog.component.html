@@ -1,0 +1,41 @@
+<div mat-dialog-title>
+  <h1>Add Announcement</h1>
+</div>
+<form [formGroup]="addAnnouneForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field >
+            <mat-label>Subject</mat-label>
+            <input matInput type="text" formControlName="subject">
+        </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field >
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="startpicker" formControlName="startdate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="startpicker"></mat-datepicker-toggle>
+        <mat-datepicker #startpicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>End date</mat-label>
+      <input matInput [matDatepicker]="endpicker" formControlName="enddate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="endpicker"></mat-datepicker-toggle>
+      <mat-datepicker #endpicker></mat-datepicker>
+  </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="example-full-width" >
+      <mat-label>Description ....</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..." formControlName="description"></textarea>
+    </mat-form-field>
+  </div>
+ </div>
+
+ <div mat-dialog-actions class="action">
+  <button mat-raised-button [mat-dialog-close]="false" type="button" color="warn">Cancel</button>
+  <button mat-raised-button color="primary" type="submit">Add</button>
+</div>
+
+</form>
