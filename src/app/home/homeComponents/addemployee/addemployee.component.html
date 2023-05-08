@@ -1,4 +1,118 @@
 <div class="add-emp">
+  <h2>ADD EMPLOYEE</h2>
+
+  <div class="all-forms">
+    <mat-tab-group animationDuration="0ms">
+      <mat-tab label="Basic Details">
+        <div class="basicDetailsForm">
+          <form action="" [formGroup]="BasicDetailsEmpForm" (ngSubmit)="addEmployeeBasicDetails()">
+            <mat-card>
+             <mat-card-content>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>First Name</mat-label>
+                    <input matInput type="text" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Last Name</mat-label>
+                    <input matInput type="text" formControlName="lastName">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Employee ID</mat-label>
+                    <input matInput type="text" formControlName="empId">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-radio-group aria-label="Select an option" formControlName="gender">
+                  <mat-label><b>Gender</b></mat-label>
+                  <mat-radio-button value="male">Male</mat-radio-button>
+                  <mat-radio-button value="female">Female</mat-radio-button>
+                  <mat-radio-button value="others">Others</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Qualification</mat-label>
+                  <mat-select formControlName="qualification">
+                    <mat-option *ngFor="let val of education" [value]="val">
+                      {{val}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Date of birth</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Designation</mat-label>
+                  <input matInput type="text" formControlName="designation">
+              </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Reporting Manager Name</mat-label>
+                    <input matInput type="text" formControlName="reportingManagerName">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Employee Role</mat-label>
+                  <mat-select formControlName="empRole">
+                    <mat-option *ngFor="let val of emprole" [value]="val">
+                      {{val}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Phone Number</mat-label>
+                    <input matInput type="tel" formControlName="mobileNumber">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Password</mat-label>
+                    <input matInput type="text" formControlName="password">
+                </mat-form-field>
+              </div>
+              <!-- <div class="fileSelect">
+                <button type="button" mat-raised-button (click)="fileInput.click()" >Choose Image</button>
+               <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+                <span class="file-name">{{selectedFile?.name}}</span>
+              </div> -->
+              <div class="buttons">
+                <button mat-raised-button color="primary" type="submit">ADD</button>
+              </div>
+             </mat-card-content>
+            </mat-card>
+          </form>
+        </div>
+      </mat-tab>
+      <mat-tab label="Personal Details">
+
+      </mat-tab>
+      <mat-tab label="Contact">
+
+      </mat-tab>
+      <mat-tab label="Education">
+
+      </mat-tab>
+      <mat-tab label="Documents">
+
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+</div>
+
+
+
+
+<!-- <div class="add-emp">
   <mat-card>
     <mat-card-header>
       <div class="header">
@@ -85,4 +199,4 @@
       </mat-card-actions>
     </form>
   </mat-card>
-</div>
+</div> -->

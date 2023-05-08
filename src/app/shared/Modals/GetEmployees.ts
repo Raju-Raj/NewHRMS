@@ -10,4 +10,6 @@ export class GetEmployees{
     mobileNumber!:number;
     password!:string;
     image!:string;
+    designation!:string;
+    reportingManagerName!:string;
 }

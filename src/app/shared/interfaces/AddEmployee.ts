@@ -9,5 +9,7 @@ export interface AddEmployeeInterface{
     empRole:string;
     mobileNumber:number;
     password:string;
+    designation:string;
+    reportingManagerName:string;
     // image:string;
 }

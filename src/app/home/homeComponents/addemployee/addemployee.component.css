@@ -1,4 +1,41 @@
 .add-emp{
+  padding: 10px;
+}
+
+.add-emp h2{
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+  color: #303f9f;
+}
+
+.add-emp .all-forms mat-tab{
+  text-align: center !important;
+}
+
+.add-emp .all-forms .basicDetailsForm{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-emp .all-forms .basicDetailsForm .row{
+  display: flex;
+  gap: 10px;
+}
+
+.add-emp .all-forms .basicDetailsForm .row mat-form-field{
+  width: 100%;
+}
+
+.add-emp .all-forms .basicDetailsForm .buttons button{
+  width: 60%;
+}
+
+
+
+
+
+/* .add-emp{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +77,6 @@
 }
 
 .file-name {
-  margin-left: 1rem; /* or whatever margin you require */
+  margin-left: 1rem;
   color: #291e9c;
-}
+} */

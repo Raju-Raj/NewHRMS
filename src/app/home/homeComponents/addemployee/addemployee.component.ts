@@ -23,12 +23,12 @@ export class AddemployeeComponent implements OnInit{
 
   selectedFile: any = null;
 
-  addEmpForm!:FormGroup;
+  BasicDetailsEmpForm!:FormGroup;
 
   constructor(private formBuilder:FormBuilder,private empService:EmployeeService){}
 
   ngOnInit(): void {
-    this.addEmpForm= this.formBuilder.group({
+    this.BasicDetailsEmpForm= this.formBuilder.group({
       empId:['',Validators.required],
       firstName:['',Validators.required],
       lastName:['',Validators.required],
@@ -37,34 +37,36 @@ export class AddemployeeComponent implements OnInit{
       dateOfBirth:['',Validators.required],
       qualification:['',Validators.required],
       empRole:['',Validators.required],
+      designation:['',Validators.required],
+      reportingManagerName:['',Validators.required],
       mobileNumber:['',Validators.required],
       password:['',Validators.required],
-      image:['']
+      // image:['']
     });
   }
 
   get f(){
-    return this.addEmpForm.controls;
+    return this.BasicDetailsEmpForm.controls;
   }
 
   onFileSelected(event: any): void {
     if (event.target.files.length > 0) {
       this.selectedFile = event.target.files[0];
-      this.addEmpForm.patchValue({
+      this.BasicDetailsEmpForm.patchValue({
         image: this.selectedFile
       });
     }
   }
 
 
-  addEmployee(){
-    console.log(this.addEmpForm.value)
-    if(this.addEmpForm.invalid) return;
-    this.empService.addEmployeeSer(this.addEmpForm.value).subscribe((data)=>{
+  addEmployeeBasicDetails(){
+    console.log(this.BasicDetailsEmpForm.value)
+    if(this.BasicDetailsEmpForm.invalid) return;
+    this.empService.addEmployeeSer(this.BasicDetailsEmpForm.value).subscribe((data)=>{
       console.log(data)
-      this.addEmpForm.reset()
-      Object.keys(this.addEmpForm.controls).forEach((key) => {
-        const control = this.addEmpForm.controls[key];
+      this.BasicDetailsEmpForm.reset()
+      Object.keys(this.BasicDetailsEmpForm.controls).forEach((key) => {
+        const control = this.BasicDetailsEmpForm.controls[key];
         control.setErrors(null);
     });
     })
