@@ -14,7 +14,7 @@ import { AddAnnounceDialogComponent } from '../../dialogs/add-announce-dialog/ad
 })
 export class AnnouncementPageComponent {
 
-  displayedColumns: string[] = ['subject', 'description', 'startdate', 'enddate'];
+  displayedColumns: string[] = ['subject', 'description', 'startdate', 'enddate','action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

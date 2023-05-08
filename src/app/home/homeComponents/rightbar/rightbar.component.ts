@@ -18,7 +18,7 @@ export class RightbarComponent {
     this.annService.getAnnouncements().subscribe(()=>{
       this.annService.announcementObservable.subscribe((ann)=>{
         this.announcements = ann
-        const limitData = ann.slice(Math.max(ann.length - 3, 0));
+        const limitData = this.announcements.slice(Math.max(ann.length - 3, 0));
        const reverseData = limitData.reverse();
        this.newThreeAnnouncements = reverseData;
        this.newAnnouncement = this.announcements.slice(this.announcements.length-1);

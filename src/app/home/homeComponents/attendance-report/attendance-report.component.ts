@@ -39,13 +39,13 @@ getReport(){
   const startDateCreate = this.dateRange.value.start ? new Date(this.dateRange.value.start) : new Date()
   const getStartYear = startDateCreate?.getFullYear()
   const getStartMonth = (startDateCreate?.getMonth()+1).toString().padStart(2, '0');
-  const getStartDay = startDateCreate?.getDay().toString().padStart(2, '0');
+  const getStartDay = startDateCreate?.getDate().toString().padStart(2, '0');
   const startDate = getStartYear+'-'+getStartMonth+'-'+getStartDay
   console.log(startDate)
   const endDateCreate = this.dateRange.value.end ? new Date(this.dateRange.value.end) : new Date()
   const getEndYear = endDateCreate?.getFullYear()
   const getEndMonth = (endDateCreate?.getMonth()+1).toString().padStart(2, '0');
-  const getEndDay = endDateCreate?.getDay().toString().padStart(2, '0');
+  const getEndDay = endDateCreate?.getDate().toString().padStart(2, '0');
   const endDate = getEndYear+'-'+getEndMonth+'-'+getEndDay
   console.log(endDate)
 

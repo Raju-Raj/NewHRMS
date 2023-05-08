@@ -38,6 +38,7 @@ addAnnouncement(payload:AnnouncementInterface){
           duration:2000,
           panelClass:"my-custom-snackbar-success"
         });
+        this.getAnnouncements()
       },
       error:(err)=>{
         this._snackBar.open("Add Announcement Failed", 'close',{
