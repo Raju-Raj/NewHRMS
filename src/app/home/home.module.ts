@@ -37,6 +37,7 @@ import { AttendanceReportComponent } from './homeComponents/attendance-report/at
 import { AddAnnounceDialogComponent } from './dialogs/add-announce-dialog/add-announce-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
+import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     AnnouncementPageComponent,
     AttendanceComponent,
     AttendanceReportComponent,
-    AddAnnounceDialogComponent
+    AddAnnounceDialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     CommonModule,

@@ -78,6 +78,52 @@
                   <mat-label>Password</mat-label>
                     <input matInput type="text" formControlName="password">
                 </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Active Status</mat-label>
+                  <mat-select formControlName="isActive">
+                    <mat-option value="1">
+                      Active
+                    </mat-option>
+                    <mat-option value="0">
+                      InActive
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <h3>Salary Details:</h3>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Currency</mat-label>
+                    <input matInput type="text" formControlName="currency">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Salary</mat-label>
+                    <input matInput type="text" formControlName="salary">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bank Name</mat-label>
+                    <input matInput type="text" formControlName="bankName">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Account Holder Name</mat-label>
+                    <input matInput type="text" formControlName="accountHolderName">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Account Type</mat-label>
+                    <input matInput type="text" formControlName="accountType">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Account Number</mat-label>
+                    <input matInput type="text" formControlName="accountNumber">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>IFSC CODE</mat-label>
+                    <input matInput type="text" formControlName="ifscCode">
+                </mat-form-field>
               </div>
               <!-- <div class="fileSelect">
                 <button type="button" mat-raised-button (click)="fileInput.click()" >Choose Image</button>
@@ -92,14 +138,331 @@
           </form>
         </div>
       </mat-tab>
+
       <mat-tab label="Personal Details">
-
+        <div class="contactDetailsForm">
+          <form action="" [formGroup]="PersonalDetailsEmpForm" (ngSubmit)="addEmployeePersonalDetails()">
+            <mat-card>
+             <mat-card-content>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Birth Country</mat-label>
+                    <input matInput type="text" formControlName="birthCountry">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Language</mat-label>
+                    <input matInput type="text" formControlName="language">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Country</mat-label>
+                    <input matInput type="text" formControlName="country">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Marital Status</mat-label>
+                  <mat-select formControlName="maritalStatus">
+                    <mat-option value="married">
+                      Married
+                    </mat-option>
+                    <mat-option value="single">
+                      Single
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Marital Effective Date</mat-label>
+                  <input matInput [matDatepicker]="maritalpicker" formControlName="maritalEffectiveDate">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="maritalpicker"></mat-datepicker-toggle>
+                  <mat-datepicker #maritalpicker></mat-datepicker>
+              </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Citizenship</mat-label>
+                    <input matInput type="text" formControlName="citizenship">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Citizenship Effective Date</mat-label>
+                  <input matInput [matDatepicker]="citizenpicker" formControlName="citizenshipEffectiveDate">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="citizenpicker"></mat-datepicker-toggle>
+                  <mat-datepicker #citizenpicker></mat-datepicker>
+              </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>National ID Type</mat-label>
+                    <input matInput type="text" formControlName="nationalIdType">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>National ID</mat-label>
+                    <input matInput type="text" formControlName="nationalId">
+                </mat-form-field>
+              </div>
+              <div class="buttons">
+                <button mat-raised-button color="primary" type="submit">ADD</button>
+              </div>
+             </mat-card-content>
+            </mat-card>
+          </form>
+        </div>
       </mat-tab>
-      <mat-tab label="Contact">
 
+      <mat-tab label="Contact">
+        <div class="contactDetailsForm">
+          <form action="" [formGroup]="ContactDetailsEmpForm" (ngSubmit)="addEmployeeContactDetails()">
+            <mat-card>
+             <mat-card-content>
+              <h3>Adddress 1</h3>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Status</mat-label>
+                  <mat-select formControlName="status1">
+                    <mat-option value="curentaddress">
+                      Current Address
+                    </mat-option>
+                    <mat-option value="permanentaddress">
+                      Permanent Address
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Country</mat-label>
+                  <mat-select formControlName="country1">
+                    <mat-option value="india">
+                      India
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>State</mat-label>
+                  <mat-select formControlName="state1">
+                    <mat-option value="telangana">
+                      Telangana
+                    </mat-option>
+                    <mat-option value="andhrapradesh">
+                      Andhra Pradesh
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Effective Date</mat-label>
+                  <input matInput [matDatepicker]="address1picker" formControlName="effectiveDate1">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="address1picker"></mat-datepicker-toggle>
+                  <mat-datepicker #address1picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>PinCode</mat-label>
+                  <input matInput type="text" formControlName="pincode1">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>City</mat-label>
+                <mat-select formControlName="city1">
+                  <mat-option value="hyderabad">
+                    Hyderabad
+                  </mat-option>
+                  <mat-option value="secunderabad">
+                    Secunderabad
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              </div>
+             <div class="row">
+              <mat-form-field>
+                <mat-label>Street</mat-label>
+                  <input matInput type="text" formControlName="street1">
+              </mat-form-field>
+             </div>
+              <h3>Adddress 2</h3>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Status</mat-label>
+                  <mat-select formControlName="status2">
+                    <mat-option value="curentaddress">
+                      Current Address
+                    </mat-option>
+                    <mat-option value="permanentaddress">
+                      Permanent Address
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Country</mat-label>
+                  <mat-select formControlName="country2">
+                    <mat-option value="india">
+                      India
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>State</mat-label>
+                  <mat-select formControlName="state2">
+                    <mat-option value="telangana">
+                      Telangana
+                    </mat-option>
+                    <mat-option value="andhrapradesh">
+                      Andhra Pradesh
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Effective Date</mat-label>
+                  <input matInput [matDatepicker]="address2picker" formControlName="effectiveDate2">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="address2picker"></mat-datepicker-toggle>
+                  <mat-datepicker #address2picker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>PinCode</mat-label>
+                  <input matInput type="text" formControlName="pincode2">
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>City</mat-label>
+                <mat-select formControlName="city2">
+                  <mat-option value="hyderabad">
+                    Hyderabad
+                  </mat-option>
+                  <mat-option value="secunderabad">
+                    Secunderabad
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Street</mat-label>
+                    <input matInput type="text" formControlName="street2">
+                </mat-form-field>
+              </div>
+              <div class="buttons">
+                <button mat-raised-button color="primary" type="submit">ADD</button>
+              </div>
+             </mat-card-content>
+            </mat-card>
+          </form>
+        </div>
       </mat-tab>
       <mat-tab label="Education">
-
+        <div class="contactDetailsForm">
+          <form action="" [formGroup]="EducationDetailsEmpForm" (ngSubmit)="addEmployeeEducationDetails()">
+            <mat-card>
+             <mat-card-content>
+              <h3>Master's</h3>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Masters</mat-label>
+                  <mat-select formControlName="masterDegree">
+                    <mat-option value="mba">
+                      MBA
+                    </mat-option>
+                    <mat-option value="mca">
+                      MCA
+                    </mat-option>
+                    <mat-option value="ms">
+                      MS
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Master's Percentage</mat-label>
+                    <input matInput type="number" formControlName="percentageofmasterDegree">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Master's Institute Name</mat-label>
+                    <input matInput type="text" formControlName="masterDegreeInstituteName">
+                </mat-form-field>
+              </div>
+              <h3>Bachelors Degree:</h3>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Degree</mat-label>
+                  <mat-select formControlName="bachlorsDegree">
+                    <mat-option value="bcom">
+                      Bcom
+                    </mat-option>
+                    <mat-option value="bsc">
+                      BSC
+                    </mat-option>
+                    <mat-option value="ba">
+                      BA
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bachelors Degree Percentage</mat-label>
+                    <input matInput type="number" formControlName="percentageofbachlorsDegree">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Bachelors Degree Institute Name</mat-label>
+                    <input matInput type="text" formControlName="bachlorsDegreeInstituteName">
+                </mat-form-field>
+              </div>
+              <h3>Diplomo or Intermediate</h3>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Group</mat-label>
+                    <input matInput type="text" formControlName="diploma_HsscDegree">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Percentage</mat-label>
+                    <input matInput type="number" formControlName="percentageofdiploma_HsscDegree">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Institute Name</mat-label>
+                    <input matInput type="text" formControlName="diploma_HsscDegreeInstituteName">
+                </mat-form-field>
+              </div>
+              <h3>School:</h3>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Board</mat-label>
+                  <mat-select formControlName="sscDegree">
+                    <mat-option value="cbse">
+                      CBSE
+                    </mat-option>
+                    <mat-option value="ssc">
+                      SSC
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>School Percentage</mat-label>
+                    <input matInput type="number" formControlName="percentageofsscDegree">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>School Name</mat-label>
+                    <input matInput type="text" formControlName="sscDegreeInstituteName">
+                </mat-form-field>
+              </div>
+              <h3>Other Degree</h3>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Other Degree Name</mat-label>
+                    <input matInput type="text" formControlName="other">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Percentage</mat-label>
+                    <input matInput type="number" formControlName="percentageofother">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Institute Name</mat-label>
+                    <input matInput type="text" formControlName="otherDegreeInstituteName">
+                </mat-form-field>
+              </div>
+              <div class="buttons">
+                <button mat-raised-button color="primary" type="submit">ADD</button>
+              </div>
+             </mat-card-content>
+            </mat-card>
+          </form>
+        </div>
       </mat-tab>
       <mat-tab label="Documents">
 

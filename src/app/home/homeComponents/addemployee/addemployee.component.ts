@@ -8,6 +8,9 @@ import { EmployeeService } from '../../homeServices/employee.service';
   styleUrls: ['./addemployee.component.css']
 })
 export class AddemployeeComponent implements OnInit{
+
+  addEmpMoreDetailsId!:string;
+
   education:string[] = [
     'BCom',
     'BSC',
@@ -24,6 +27,9 @@ export class AddemployeeComponent implements OnInit{
   selectedFile: any = null;
 
   BasicDetailsEmpForm!:FormGroup;
+  PersonalDetailsEmpForm!:FormGroup;
+  ContactDetailsEmpForm!:FormGroup;
+  EducationDetailsEmpForm!:FormGroup;
 
   constructor(private formBuilder:FormBuilder,private empService:EmployeeService){}
 
@@ -41,8 +47,61 @@ export class AddemployeeComponent implements OnInit{
       reportingManagerName:['',Validators.required],
       mobileNumber:['',Validators.required],
       password:['',Validators.required],
-      // image:['']
+      // image:[''],
+      currency:['',Validators.required],
+      salary:['',Validators.required],
+      bankName:['',Validators.required],
+      accountHolderName:['',Validators.required],
+      accountType:['',Validators.required],
+      accountNumber:['',Validators.required],
+      ifscCode:['',Validators.required],
+      isActive:['',Validators.required],
     });
+    this.PersonalDetailsEmpForm = this.formBuilder.group({
+      birthCountry:['',Validators.required],
+      language:['',Validators.required],
+      maritalStatus:['',Validators.required],
+      citizenship:['',Validators.required],
+      country:['',Validators.required],
+      maritalEffectiveDate:['',Validators.required],
+      citizenshipEffectiveDate:['',Validators.required],
+      nationalIdType:['',Validators.required],
+      nationalId:['',Validators.required],
+    })
+    this.ContactDetailsEmpForm = this.formBuilder.group({
+      status1:['',Validators.required],
+      country1:['',Validators.required],
+      state1:['',Validators.required],
+      street1:['',Validators.required],
+      effectiveDate1:['',Validators.required],
+      pincode1:['',Validators.required],
+      city1:['',Validators.required],
+      status2:['',Validators.required],
+      country2:['',Validators.required],
+      state2:['',Validators.required],
+      street2:['',Validators.required],
+      effectiveDate2:['',Validators.required],
+      pincode2:['',Validators.required],
+      city2:['',Validators.required],
+    })
+    this.EducationDetailsEmpForm = this.formBuilder.group({
+	    masterDegree:['',Validators.required],
+	    percentageofmasterDegree:['',Validators.required],
+      bachlorsDegree:['',Validators.required],
+	    percentageofbachlorsDegree:['',Validators.required],
+	    diploma_HsscDegree:['',Validators.required],
+	    percentageofdiploma_HsscDegree:['',Validators.required],
+      sscDegree:['',Validators.required],
+      percentageofsscDegree:['',Validators.required],
+      other:['',Validators.required],
+      percentageofother:['',Validators.required],
+	    masterDegreeInstituteName:['',Validators.required],
+      bachlorsDegreeInstituteName:['',Validators.required],
+      diploma_HsscDegreeInstituteName:['',Validators.required],
+      sscDegreeInstituteName:['',Validators.required],
+      otherDegreeInstituteName:['',Validators.required],
+    })
+
   }
 
   get f(){
@@ -70,6 +129,21 @@ export class AddemployeeComponent implements OnInit{
         control.setErrors(null);
     });
     })
+  }
+
+  addEmployeePersonalDetails(){
+    console.log(this.PersonalDetailsEmpForm.value)
+    if(this.PersonalDetailsEmpForm.invalid) return;
+  }
+
+  addEmployeeContactDetails(){
+    console.log(this.ContactDetailsEmpForm.value)
+    if(this.ContactDetailsEmpForm.invalid) return;
+  }
+
+  addEmployeeEducationDetails(){
+    console.log(this.EducationDetailsEmpForm.value)
+    if(this.EducationDetailsEmpForm.invalid) return;
   }
 
 }

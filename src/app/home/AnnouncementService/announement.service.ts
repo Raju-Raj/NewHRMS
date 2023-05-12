@@ -50,5 +50,45 @@ addAnnouncement(payload:AnnouncementInterface){
   )
 }
 
+updateAnnouncement(id:any,payload:AnnouncementInterface){
+  return this.http.put(`http://68.178.164.213:9090/announcement/updateAnnouncementDetails/${id}`,payload).pipe(
+    tap({
+      next:(res)=>{
+        this._snackBar.open("Update Announcement Successfull", 'close',{
+          duration:2000,
+          panelClass:"my-custom-snackbar-success"
+        });
+        this.getAnnouncements()
+      },
+      error:(err)=>{
+        this._snackBar.open("Update Announcement Failed", 'close',{
+          duration:2000,
+          panelClass:"my-custom-snackbar-failed"
+        });
+      }
+    })
+  )
+}
+
+deleteAnnouncement(id:any){
+  return this.http.delete(`http://68.178.164.213:9090/announcement/delete/${id}`).pipe(
+    tap({
+      next:(res)=>{
+        this._snackBar.open("Delete Announcement Successfull", 'close',{
+          duration:2000,
+          panelClass:"my-custom-snackbar-success"
+        });
+        this.getAnnouncements()
+      },
+      error:(err)=>{
+        this._snackBar.open("Delete Announcement Failed", 'close',{
+          duration:2000,
+          panelClass:"my-custom-snackbar-failed"
+        });
+      }
+    })
+  )
+}
+
 
 }

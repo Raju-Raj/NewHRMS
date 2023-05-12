@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { AddAnnounceDialogComponent } from '../../dialogs/add-announce-dialog/add-announce-dialog.component';
+import { DeleteDialogComponent } from '../../dialogs/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-announcement-page',
@@ -54,6 +55,34 @@ export class AnnouncementPageComponent {
       next:(val)=>{
         if(val){
           this.getAnnouncementsMethod()
+        }
+      }
+    })
+  }
+
+  openUpdateAnnounceForm(data:any){
+    const dialogRef=this._dialog.open(AddAnnounceDialogComponent,{
+      data,
+     });
+     dialogRef.afterClosed().subscribe({
+      next:(val)=>{
+        if(val){
+          this.getAnnouncementsMethod()
+        }
+      }
+    })
+  }
+
+  deleteAnnouncement(id:any){
+    const dialogRef = this._dialog.open(DeleteDialogComponent,{
+      data: { title: 'Delete Announcement'},
+    });
+    dialogRef.afterClosed().subscribe({
+      next:(val)=>{
+        if(val){
+          this.annService.deleteAnnouncement(id).subscribe(()=>{
+            this.getAnnouncementsMethod()
+          })
         }
       }
     })

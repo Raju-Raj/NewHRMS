@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { UserDetails } from 'src/app/shared/Modals/User';
-import { AddEmployeeInterface } from 'src/app/shared/interfaces/AddEmployee';
+import { AddEmployeeContatInterface, AddEmployeeEducationInterface, AddEmployeeInterface, AddEmployeePersonalInterface } from 'src/app/shared/interfaces/AddEmployee';
 
 @Injectable({
   providedIn: 'root'
@@ -71,5 +71,54 @@ export class EmployeeService {
       })
     )
   }
+
+
+  addEmployeePersonalSer(id:any,empPayload:AddEmployeePersonalInterface){
+    return this.http.post(`http://68.178.164.213:9090/Employee/saveEmpInfo/${id}`,empPayload).pipe(
+      tap({
+        next:(user)=>{
+          this.getEmployeeSer()
+          this._snackBar.open("Personal Details Added Successfull", 'close',{
+            duration:2000,
+            panelClass:"my-custom-snackbar-success"
+          });
+        },
+        error:(errorResponse)=>{
+          console.log(errorResponse)
+          this._snackBar.open("Personal Details Added Failed", 'close',{
+            duration:2000,
+            panelClass:"my-custom-snackbar-failed"
+          });
+        }
+      })
+    )
+  }
+
+  addEmployeeContactSer(id:any,empPayload:AddEmployeeContatInterface){
+    return this.http.post(`http://68.178.164.213:9090/Employee/saveContactDetails/${id}`,empPayload).pipe(
+      tap({
+        next:()=>{
+
+        },
+        error:()=>{
+
+        }
+      })
+    )
+  }
+
+  addEmployeeEducationSer(id:any,empPayload:AddEmployeeEducationInterface){
+    return this.http.post(`http://68.178.164.213:9090/Employee/saveEmpeducationaldetails/${id}`,empPayload).pipe(
+      tap({
+        next:()=>{
+
+        },
+        error:()=>{
+
+        }
+      })
+    )
+  }
+
 
 }

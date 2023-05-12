@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-  <h1>Add Announcement</h1>
+  <h1>{{data ? 'Update' : 'Add'}} Announcement</h1>
 </div>
 <form [formGroup]="addAnnouneForm" (ngSubmit)="onFormSubmit()">
   <div mat-dialog-content class="content">
@@ -35,7 +35,7 @@
 
  <div mat-dialog-actions class="action">
   <button mat-raised-button [mat-dialog-close]="false" type="button" color="warn">Cancel</button>
-  <button mat-raised-button color="primary" type="submit">Add</button>
+  <button mat-raised-button color="primary" type="submit">{{data ? 'Update' : 'Add'}}</button>
 </div>
 
 </form>

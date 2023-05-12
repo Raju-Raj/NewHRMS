@@ -13,22 +13,38 @@
   text-align: center !important;
 }
 
+.add-emp .all-forms .contactDetailsForm,
 .add-emp .all-forms .basicDetailsForm{
   text-align: center;
   margin-top: 20px;
 }
 
-.add-emp .all-forms .basicDetailsForm .row{
+.add-emp .all-forms  h3{
+  font-weight: 600;
+  color: #303f9f;
+  margin: 0;
+  text-align: start;
+}
+
+.add-emp .all-forms .row{
   display: flex;
   gap: 10px;
 }
 
-.add-emp .all-forms .basicDetailsForm .row mat-form-field{
+.add-emp .all-forms .row mat-form-field{
   width: 100%;
 }
 
-.add-emp .all-forms .basicDetailsForm .buttons button{
+.add-emp .all-forms  .buttons button{
   width: 60%;
+}
+
+
+@media screen and (max-width:1200px) {
+  .add-emp .all-forms .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 

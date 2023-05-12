@@ -9,7 +9,15 @@ export class GetEmployees{
     empRole!:string;
     mobileNumber!:number;
     password!:string;
-    image!:string;
     designation!:string;
     reportingManagerName!:string;
+    image!:string;
+    currency!:string;
+    salary!:string;
+    bankName!:string;
+    accountHolderName!:string;
+    accountType!:string;
+    accountNumber!:string;
+    ifscCode!:string;
+    isActive!:number;
 }
