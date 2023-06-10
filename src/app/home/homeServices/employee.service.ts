@@ -24,7 +24,7 @@ export class EmployeeService {
 
 
   getEmployeeSer():Observable<UserDetails[]>{
-    return this.http.get<UserDetails[]>("http://68.178.164.213:9090/Employee/getEmployeeDetails").pipe(
+    return this.http.get<UserDetails[]>("http://68.178.164.213:9090/Employee/getEmployeeDetails",).pipe(
       tap({
         next:(emp)=>{
           this.employeesSubject.next(emp);
@@ -47,6 +47,41 @@ export class EmployeeService {
         }
       })
     )
+  }
+
+
+  // Form Api's for select dropdown's
+
+  getJobTitleSer(){
+    return this.http.get('http://68.178.164.213:9090/common/getallJobTitle')
+  }
+
+  getJobPositionSer(id:any){
+    return this.http.get(`http://68.178.164.213:9090/common/getPositionList?jobTitleId=${id}`)
+  }
+
+  getRoleSer(){
+    return this.http.get("http://68.178.164.213:9090/common/getAllEmpRole")
+  }
+
+  getBusinessUnitSer(){
+    return this.http.get("http://68.178.164.213:9090/business/getbusinessdetails")
+  }
+
+  getDepartmentSer(id:any){
+    return this.http.get(`http://68.178.164.213:9090/Organization/getDUbasedOnBu?businessId=${id}`)
+  }
+
+  getHrManagerListSer(id:any){
+    return this.http.get(`http://68.178.164.213:9090/common/HrManagerList?businessunitId=${id}`)
+  }
+
+  getImmManagerListSer(id:any){
+    return this.http.get(`http://68.178.164.213:9090/common/IMMManagerList?businessunitId=${id}`)
+  }
+
+  getReportingManagerSer(roleid:any,depId:any){
+    return this.http.get(`http://68.178.164.213:9090/common/getReportingManagerList?empRoleId=${roleid}&departmentId=${depId}`)
   }
 
 

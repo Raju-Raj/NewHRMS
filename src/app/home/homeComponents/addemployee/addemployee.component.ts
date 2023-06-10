@@ -11,52 +11,145 @@ export class AddemployeeComponent implements OnInit{
 
   addEmpMoreDetailsId!:string;
 
-  education:string[] = [
-    'BCom',
-    'BSC',
-    'Btech',
-    'MBA'
-  ]
-
-  emprole:string[] = [
-    'HR',
-    'Manager',
-    'Employee'
-  ]
-
   selectedFile: any = null;
 
+  // Form select option for SSN number
+  ssn = true;
+  aadhar = false;
+  pan = false;
+
+  // Form Option Values
+  jobTitleValues:any;
+  jobPositions:any;
+  role:any;
+  businessUnit:any;
+  departments:any;
+  hrManagerList:any;
+  ImmManagerList:any;
+  reportingManagerList:any;
+
+
+  // Form Names
   BasicDetailsEmpForm!:FormGroup;
+  SalaryDetailsEmpForm!:FormGroup;
   PersonalDetailsEmpForm!:FormGroup;
   ContactDetailsEmpForm!:FormGroup;
   EducationDetailsEmpForm!:FormGroup;
 
-  constructor(private formBuilder:FormBuilder,private empService:EmployeeService){}
+  constructor(private formBuilder:FormBuilder,private empService:EmployeeService){
+    this.getJobTitle()
+    this.getRole()
+    this.getBusinessUnit()
+  }
+
+  typeOfNumberSSN(name:any){
+    this.BasicDetailsEmpForm.controls['ssnNumber'].setValue('')
+    if (name == 'pancard') {
+      this.ssn = false;
+      this.aadhar = false;
+      this.pan = true;
+  } else if (name == 'aadharcard') {
+      this.ssn = false;
+      this.pan = false;
+      this.aadhar = true;
+  } else {
+      this.ssn = true;
+      this.pan = false;
+      this.aadhar = false;
+  }
+  }
+
+
+  // Basic Details Form Select List Api's
+  getJobTitle(){
+    this.empService.getJobTitleSer().subscribe((data:any)=>{
+      this.jobTitleValues = data;
+    })
+  }
+
+  getJobPosition(id:any){
+    this.empService.getJobPositionSer(id).subscribe((data:any)=>{
+      this.jobPositions = data.listOfPositions;
+    })
+    console.log("called")
+  }
+
+  getRole(){
+    this.empService.getRoleSer().subscribe((data:any)=>{
+      this.role = data;
+    })
+  }
+
+  getBusinessUnit(){
+    this.empService.getBusinessUnitSer().subscribe((data:any)=>{
+      this.businessUnit = data;
+    })
+  }
+
+  getDepartment(id:any){
+    this.empService.getDepartmentSer(id).subscribe((data:any)=>{
+      this.departments = data.list;
+    })
+    this. getHrmangerList(id)
+    this.getImmManagerList(id)
+  }
+
+  getHrmangerList(id:any){
+    this.empService.getHrManagerListSer(id).subscribe((data:any)=>{
+      this.hrManagerList = data.list
+    })
+  }
+
+  getImmManagerList(id:any){
+    this.empService.getImmManagerListSer(id).subscribe((data:any)=>{
+      this.ImmManagerList = data.list
+    })
+  }
+
+  getReportingManager(id:any){
+    console.log(this.BasicDetailsEmpForm.controls['empRoleId'].value)
+    this.empService.getReportingManagerSer(this.BasicDetailsEmpForm.controls['empRoleId'].value,id).subscribe((data:any)=>{
+      this.reportingManagerList = data.list
+    })
+  }
+
 
   ngOnInit(): void {
     this.BasicDetailsEmpForm= this.formBuilder.group({
       empId:['',Validators.required],
+      prefix:['',Validators.required],
       firstName:['',Validators.required],
       lastName:['',Validators.required],
+      employeeName:['',Validators.required],
       gender:['',Validators.required],
       email:['',[Validators.required,Validators.email]],
-      dateOfBirth:['',Validators.required],
-      qualification:['',Validators.required],
-      empRole:['',Validators.required],
-      designation:['',Validators.required],
-      reportingManagerName:['',Validators.required],
-      mobileNumber:['',Validators.required],
+      contactnumber:['',Validators.required],
       password:['',Validators.required],
-      // image:[''],
-      currency:['',Validators.required],
-      salary:['',Validators.required],
-      bankName:['',Validators.required],
-      accountHolderName:['',Validators.required],
-      accountType:['',Validators.required],
-      accountNumber:['',Validators.required],
-      ifscCode:['',Validators.required],
-      isActive:['',Validators.required],
+      dateOfBirth:['',Validators.required],
+      jobtitle_id:['',Validators.required],
+      position_id:['',Validators.required],
+      empRoleId:['',Validators.required],
+      selecteddate:['',Validators.required],
+      businessunitId:['',Validators.required],
+      departmentId:['',Validators.required],
+      modeOfEntry:['',Validators.required],
+      dateOfJoining:['',Validators.required],
+      yearOfExp:['',Validators.required],
+      WorkTelephoneNo:['',Validators.required],
+      extensionNo:['',Validators.required],
+      faxNo:['',Validators.required],
+      designation:['',Validators.required],
+      hrManagerId:['',Validators.required],
+      immManagerId:['',Validators.required],
+      reportingManagerId:['',Validators.required],
+      numberType:['',Validators.required],
+      ssnNumber:['',Validators.required],
+      // profileImg:[''],
+      isactive:['',Validators.required],
     });
+    this.SalaryDetailsEmpForm = this.formBuilder.group({
+
+    })
     this.PersonalDetailsEmpForm = this.formBuilder.group({
       birthCountry:['',Validators.required],
       language:['',Validators.required],
@@ -119,7 +212,6 @@ export class AddemployeeComponent implements OnInit{
 
 
   addEmployeeBasicDetails(){
-    console.log(this.BasicDetailsEmpForm.value)
     if(this.BasicDetailsEmpForm.invalid) return;
     this.empService.addEmployeeSer(this.BasicDetailsEmpForm.value).subscribe((data)=>{
       console.log(data)

@@ -38,6 +38,7 @@ import { AddAnnounceDialogComponent } from './dialogs/add-announce-dialog/add-an
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTabsModule} from '@angular/material/tabs';
 import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { DeleteDialogComponent } from './dialogs/delete-dialog/delete-dialog.com
     FormsModule,
     MatDialogModule,
     MatTabsModule,
+    MatCheckboxModule
   ],
   providers:[]
 })

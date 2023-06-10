@@ -2,6 +2,7 @@ import { Component,Input } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { AnnounementService } from '../../AnnouncementService/announement.service';
 import { AnnouncementModal } from 'src/app/shared/Modals/Announcement';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rightbar',
@@ -14,7 +15,7 @@ export class RightbarComponent {
   newAnnouncement!:AnnouncementModal[];
   newThreeAnnouncements!:AnnouncementModal[];
 
-  constructor(private userService:AuthService, private annService:AnnounementService){
+  constructor(private userService:AuthService, private annService:AnnounementService,private router:Router){
     this.annService.getAnnouncements().subscribe(()=>{
       this.annService.announcementObservable.subscribe((ann)=>{
         this.announcements = ann
@@ -27,6 +28,7 @@ export class RightbarComponent {
   }
 
   logoutFunction(){
-    this.userService.logout()
+    this.userService.logout();
+    this.router.navigate(['/auth'])
   }
 }

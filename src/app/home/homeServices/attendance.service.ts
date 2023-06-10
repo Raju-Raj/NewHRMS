@@ -18,7 +18,25 @@ export class AttendanceService {
     this.AttendanceReportObservable = this.AttendanceReportSubject.asObservable()
    }
 
-  checkIn(id:string,payload:{workFrom:string}){
+  checkIn(isHolidayToday:boolean,id:string,payload:{workFrom:string}){
+   if(isHolidayToday){
+    return this.http.post(`http://68.178.164.213:9090/attendance/check-in-forcely/${id}`,payload).pipe(
+      tap({
+        next:(res:any)=>{
+          this._snackBar.open(res.msg, 'close',{
+            duration:2000,
+            panelClass:"my-custom-snackbar-success"
+          });
+        },
+        error:(errorResponse)=>{
+          this._snackBar.open(errorResponse.error, 'close',{
+            duration:2000,
+            panelClass:"my-custom-snackbar-failed"
+          });
+        }
+      })
+    )
+   }else{
     return this.http.post(`http://68.178.164.213:9090/attendance/check-in/${id}`,payload).pipe(
       tap({
         next:(res:any)=>{
@@ -35,6 +53,7 @@ export class AttendanceService {
         }
       })
     )
+   }
   }
 
   checkOut(id:string){

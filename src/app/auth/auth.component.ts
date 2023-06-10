@@ -37,8 +37,8 @@ export class AuthComponent implements OnInit{
     if(this.loginForm.invalid) return;
      this.authService.login({email:this.fc['email'].value,password:this.fc['password'].value}).subscribe((data)=>{
         if(data){
-          // this.router.navigate(['/home'])
-          location.reload()
+          this.router.navigate(['/home'])
+          // location.reload()
         }
      })
   }

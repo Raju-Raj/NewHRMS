@@ -1,25 +1,36 @@
 export interface AddEmployeeInterface{
     empId:string;
+    dateOfJoining:Date;
+    dateOfBirth:string;
+    reportingManagerId:number;
+    employmentStatus:string;
+    departmentId:number;
+    jobtitle_id:string;
+    position_id:string;
+    designation:string;
+    yearOfExp:number;
+    prefix:string;
+    WorkTelephoneNo:string;
+    faxNo:string;
+    empRoleId:number;
     firstName:string;
     lastName:string;
     gender:string;
+    employeeName:string;
     email:string;
-    dateOfBirth:string;
-    qualification:string;
-    empRole:string;
-    mobileNumber:number;
+    contactnumber:string;
+    modeOfEntry:string;
+    extensionNo:number;
+    // selectedDocumentsIds:string;
+    selecteddate:Date;
+    // profileImg:string;
+    isactive:number;
+    businessunitId:number;
+    immManagerId:number;
+    hrManagerId:number;
+    ssnNumber:string;
+    numberType:string;
     password:string;
-    designation:string;
-    reportingManagerName:string;
-    // image:string;
-    currency:string;
-    salary:string;
-    bankName:string;
-    accountHolderName:string;
-    accountType:string;
-    accountNumber:string;
-    ifscCode:string;
-    isActive:number;
 }
 
 

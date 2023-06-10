@@ -11,16 +11,17 @@ import { AttendanceService } from '../../homeServices/attendance.service';
 })
 export class AttendanceComponent implements OnInit {
 
-  attenForm!:FormGroup
-  user!:UserDetails
+  attenForm!:FormGroup;
+  user!:UserDetails;
+  isHolidayToday=false;
 
-    hours !:number
-    minutes !:string
-    seconds !:string
-    ampm !:string
-    day !:string
-    month !:string
-    year !:string
+    hours !:number;
+    minutes !:string;
+    seconds !:string;
+    ampm !:string;
+    day !:string;
+    month !:string;
+    year !:string;
     dayString!:string;
     monthString!:string;
 
@@ -30,6 +31,11 @@ export class AttendanceComponent implements OnInit {
       this.user = userDetails;
     })
   }
+
+  onChange(event:any){
+    this.isHolidayToday = event.checked ? true : false;
+    console.log(this.isHolidayToday)
+ }
 
   ngOnInit(): void {
     this.attenForm= this.formBuilder.group({
@@ -55,7 +61,7 @@ export class AttendanceComponent implements OnInit {
 
 checkIn(){
   if(!this.attenForm.valid) return
-  this.attService.checkIn(this.user.empId,this.attenForm.value).subscribe(()=>{
+  this.attService.checkIn(this.isHolidayToday,this.user.empId,this.attenForm.value).subscribe(()=>{
   })
 }
 

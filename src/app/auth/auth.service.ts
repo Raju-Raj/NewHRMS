@@ -24,7 +24,7 @@ export class AuthService {
   }
 
    login(userLogin:UserLogin):Observable<User>{
-    return this.http.post<User>("http://68.178.164.213:9090/Employee/login",userLogin).pipe(
+    return this.http.post<User>("http://68.178.164.213:9090/authenticate",userLogin).pipe(
       tap({
         next:(user)=>{
           this.setUserToLocalStorage(user.employeeDto)
@@ -48,7 +48,6 @@ export class AuthService {
    logout(){
     this.userSubject.next(new UserDetails());
     localStorage.removeItem(USER_KEY);
-    window.location.reload();
     this._snackBar.open("Logout Successfull", 'close',{
       duration:2000,
       panelClass:"my-custom-snackbar-success"
@@ -64,6 +63,12 @@ export class AuthService {
     const userJson = localStorage.getItem(USER_KEY)
     if(userJson) return JSON.parse(userJson) as UserDetails
     return new UserDetails()
+  }
+
+  getToken() {
+    const userInfo: any = JSON.parse(localStorage.getItem(USER_KEY) || '{}');
+
+    return userInfo.jwtToken;
   }
 
 

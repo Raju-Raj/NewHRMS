@@ -10,17 +10,44 @@
              <mat-card-content>
               <div class="row">
                 <mat-form-field>
+                  <mat-label>Employee ID</mat-label>
+                    <input matInput type="text" formControlName="empId">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Prefix</mat-label>
+                  <mat-select formControlName="prefix">
+                    <mat-option value="mr">
+                      MR
+                    </mat-option>
+                    <mat-option value="mrs">
+                      MRS
+                    </mat-option>
+                    <mat-option value="ms">
+                      MS
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
                   <mat-label>First Name</mat-label>
                     <input matInput type="text" formControlName="firstName">
                 </mat-form-field>
+              </div>
+              <div class="row">
                 <mat-form-field>
                   <mat-label>Last Name</mat-label>
                     <input matInput type="text" formControlName="lastName">
                 </mat-form-field>
                 <mat-form-field>
-                  <mat-label>Employee ID</mat-label>
-                    <input matInput type="text" formControlName="empId">
+                  <mat-label>Employee Full Name</mat-label>
+                    <input matInput type="text" formControlName="employeeName">
                 </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Date of birth</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
               </div>
               <div class="row">
                 <mat-radio-group aria-label="Select an option" formControlName="gender">
@@ -32,55 +59,134 @@
               </div>
               <div class="row">
                 <mat-form-field>
-                  <mat-label>Qualification</mat-label>
-                  <mat-select formControlName="qualification">
-                    <mat-option *ngFor="let val of education" [value]="val">
-                      {{val}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Date of birth</mat-label>
-                  <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
-                  <mat-hint>MM/DD/YYYY</mat-hint>
-                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-              <mat-form-field>
-                <mat-label>Designation</mat-label>
-                  <input matInput type="text" formControlName="designation">
-              </mat-form-field>
-              </div>
-              <div class="row">
-                <mat-form-field>
-                  <mat-label>Reporting Manager Name</mat-label>
-                    <input matInput type="text" formControlName="reportingManagerName">
-                </mat-form-field>
-                <mat-form-field>
                   <mat-label>Email</mat-label>
                     <input matInput type="email" formControlName="email">
                 </mat-form-field>
                 <mat-form-field>
-                  <mat-label>Employee Role</mat-label>
-                  <mat-select formControlName="empRole">
-                    <mat-option *ngFor="let val of emprole" [value]="val">
-                      {{val}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-              <div class="row">
-                <mat-form-field>
-                  <mat-label>Phone Number</mat-label>
-                    <input matInput type="tel" formControlName="mobileNumber">
+                  <mat-label>Contact Number</mat-label>
+                    <input matInput type="text" formControlName="contactnumber">
                 </mat-form-field>
                 <mat-form-field>
                   <mat-label>Password</mat-label>
                     <input matInput type="text" formControlName="password">
                 </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Job Title</mat-label>
+                  <mat-select formControlName="jobtitle_id" #jobTitle (selectionChange)="getJobPosition(jobTitle.value)">
+                    <mat-option *ngFor="let val of jobTitleValues" value={{val.id}}>
+                      {{val.jobTitleName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Position</mat-label>
+                  <mat-select formControlName="position_id">
+                    <mat-option *ngFor="let val of jobPositions" value={{val.id}}>
+                      {{val.positionName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Mode Of Entry</mat-label>
+                  <mat-select formControlName="modeOfEntry">
+                    <mat-option value="contract">
+                      Contract
+                    </mat-option>
+                    <mat-option value="fulltime">
+                      FullTime
+                    </mat-option>
+                    <mat-option value="parttime">
+                      PartTime
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Role</mat-label>
+                  <mat-select formControlName="empRoleId">
+                    <mat-option *ngFor="let val of role" value={{val.id}}>
+                      {{val.roleName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Business Unit</mat-label>
+                  <mat-select #departmentVal formControlName="businessunitId" (selectionChange)="getDepartment(departmentVal.value)">
+                    <mat-option *ngFor="let val of businessUnit" value={{val.id}}>
+                      {{val.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Department</mat-label>
+                  <mat-select #department formControlName="departmentId" (selectionChange)="getReportingManager(department.value)">
+                    <mat-option *ngFor="let val of departments" value={{val.id}}>
+                      {{val.depName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Hr Manager</mat-label>
+                  <mat-select formControlName="hrManagerId">
+                    <mat-option *ngFor="let val of hrManagerList" value={{val.id}}>
+                      {{val.firstName}} {{val.lastName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>IMM Manager</mat-label>
+                  <mat-select formControlName="immManagerId">
+                    <mat-option *ngFor="let val of ImmManagerList" value={{val.id}}>
+                      {{val.firstName}} {{val.lastName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Report Manager</mat-label>
+                  <mat-select formControlName="reportingManagerId">
+                    <mat-option *ngFor="let val of reportingManagerList" value={{val.id}}>
+                      {{val.firstName}} {{val.lastName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Designation</mat-label>
+                    <input matInput type="text" formControlName="designation">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Selected Date</mat-label>
+                  <input matInput [matDatepicker]="selectedDatepicker" formControlName="selecteddate">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="selectedDatepicker"></mat-datepicker-toggle>
+                  <mat-datepicker #selectedDatepicker></mat-datepicker>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Date Of Joining</mat-label>
+                <input matInput [matDatepicker]="dateOfJoiningpicker" formControlName="dateOfJoining">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="dateOfJoiningpicker"></mat-datepicker-toggle>
+                <mat-datepicker #dateOfJoiningpicker></mat-datepicker>
+            </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field>
+                  <mat-label>Years Of Experiance</mat-label>
+                    <input matInput type="text" formControlName="yearOfExp">
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Work Telephone Number</mat-label>
+                    <input matInput type="text" formControlName="WorkTelephoneNo">
+                </mat-form-field>
                 <mat-form-field>
                   <mat-label>Active Status</mat-label>
-                  <mat-select formControlName="isActive">
+                  <mat-select formControlName="isactive">
                     <mat-option value="1">
                       Active
                     </mat-option>
@@ -90,39 +196,42 @@
                   </mat-select>
                 </mat-form-field>
               </div>
-              <h3>Salary Details:</h3>
               <div class="row">
                 <mat-form-field>
-                  <mat-label>Currency</mat-label>
-                    <input matInput type="text" formControlName="currency">
+                  <mat-label>Extension Number</mat-label>
+                    <input matInput type="text" formControlName="extensionNo">
                 </mat-form-field>
                 <mat-form-field>
-                  <mat-label>Salary</mat-label>
-                    <input matInput type="text" formControlName="salary">
-                </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Bank Name</mat-label>
-                    <input matInput type="text" formControlName="bankName">
+                  <mat-label>Fax Number</mat-label>
+                    <input matInput type="text" formControlName="faxNo">
                 </mat-form-field>
               </div>
               <div class="row">
                 <mat-form-field>
-                  <mat-label>Account Holder Name</mat-label>
-                    <input matInput type="text" formControlName="accountHolderName">
+                  <mat-label>Number Type</mat-label>
+                  <mat-select formControlName="numberType" #selectSSN (selectionChange)="typeOfNumberSSN(selectSSN.value)">
+                    <mat-option value="pancard">
+                      Pan Card
+                    </mat-option>
+                    <mat-option value="aadharcard">
+                      Aadhar Card
+                    </mat-option>
+                    <mat-option value="ssnnumber">
+                      SSN Number
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Account Type</mat-label>
-                    <input matInput type="text" formControlName="accountType">
+                <mat-form-field *ngIf="pan">
+                  <mat-label>Pan Card Number</mat-label>
+                    <input maxlength="9" matInput type="text" formControlName="ssnNumber">
                 </mat-form-field>
-                <mat-form-field>
-                  <mat-label>Account Number</mat-label>
-                    <input matInput type="text" formControlName="accountNumber">
+                <mat-form-field *ngIf="aadhar">
+                  <mat-label>Aadhar Card Number</mat-label>
+                    <input matInput maxlength="12" type="text" formControlName="ssnNumber">
                 </mat-form-field>
-              </div>
-              <div class="row">
-                <mat-form-field>
-                  <mat-label>IFSC CODE</mat-label>
-                    <input matInput type="text" formControlName="ifscCode">
+                <mat-form-field *ngIf="ssn">
+                  <mat-label>SSN Number</mat-label>
+                    <input maxlength="9" matInput type="text" formControlName="ssnNumber">
                 </mat-form-field>
               </div>
               <!-- <div class="fileSelect">
@@ -139,7 +248,24 @@
         </div>
       </mat-tab>
 
-      <mat-tab label="Personal Details">
+      <mat-tab label="Salary Details">
+        <div class="contactDetailsForm">
+          <form action="" [formGroup]="SalaryDetailsEmpForm">
+            <mat-card>
+             <mat-card-content>
+
+              <div class="buttons">
+                <button mat-raised-button color="primary" type="submit">ADD</button>
+              </div>
+             </mat-card-content>
+            </mat-card>
+          </form>
+        </div>
+      </mat-tab>
+
+
+
+      <mat-tab label="Personal Details" >
         <div class="contactDetailsForm">
           <form action="" [formGroup]="PersonalDetailsEmpForm" (ngSubmit)="addEmployeePersonalDetails()">
             <mat-card>
